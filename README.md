@@ -49,9 +49,43 @@ Imagine building a custom pizza. Each pizza might have different crusts, sizes, 
 
 
 ## Structural Patterns
-### Adapter
-### Composite
+Structural Design Patterns focus on how objects and classes are composed to form larger structures. They simplify relationships between objects, making them easier to manage and extend.
 
+### Adapter
+This pattern acts as a bridge between two incompatible interfaces, allowing them to work together. It’s particularly useful when you have existing code you cannot or do not want to modify but need it to interact with new code.
+- Integrating with legacy systems.
+- Developing applications to work across multiple APIs or libraries.
+- Enabling communication between devices or systems with different protocols.
+
+#### Real-World Example
+You’re developing a media player that can play different formats (e.g., MP3, MP4, VLC). Existing code only supports MP3. Use an adapter to allow the media player to interact with external code that plays other formats.
+You travel internationally and need to connect your device’s charger to a socket that has a different shape or voltage. A power adapter converts the incompatible socket interface to your plug’s interface, allowing your device to work seamlessly.
+
+#### Advantages
+- Bridges gaps between incompatible interfaces, making integration seamless.
+- Enables the use of pre-existing classes without modification, saving development time and effort.
+- Makes systems adaptable to changing requirements by allowing you to plug in new interfaces easily.
+- Decouples code from specific implementations, ensuring better maintainability and scalability.
+
+### Composite
+This pattern is particularly useful for representing part-whole hierarchies, where individual objects and groups of objects are treated in the same way. It simplifies the interaction with complex structures, such as trees or organizational hierarchies.
+- Components like buttons, panels, and windows are treated uniformly in graphical user interfaces.
+- Employees and departments in an organization, where departments can contain other employees or departments.
+- In a restaurant menu, items and sub-menus can be displayed uniformly.
+
+#### Key concepts
+- Component - An interface or abstract class representing objects in the composition
+- Leaf - Represents individual object (e.g., files) that have no children
+- Composite - Represents objects (e.g., directories) that can contain other objects, both Leaf and Composite.
+
+#### Real-World Example
+Imagine a file system where directories can contain files or other directories, forming a tree structure. You want to be able to treat both individual files and entire directories uniformly when displaying their contents or performing operations. Using the Composite Pattern, we can create a common interface for both files and directories, making it easier to traverse and manipulate the file system.
+
+#### Advantages
+- The client can treat individual objects (files) and groups of objects (directories) uniformly, reducing complexity.
+- Makes it easier to handle tree-like structures such as file systems, graphical user interfaces, or organizational charts.
+- (Scalability) New types of components (e.g., symbolic links in a file system) can be added without altering existing code.
+- (Flexibility) Components can be composed dynamically, creating complex structures on the fly.
 
 ## Behavioral Patterns
 ### Observer
