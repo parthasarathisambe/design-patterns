@@ -181,5 +181,82 @@ The Flyweight Pattern allows the text editor to:
 
 
 ## Behavioral Patterns
+### Chain of Responsibility
+It allows a request to pass through a series of handlers. Each handler decides:
+- Whether to process the request.
+- Whether to pass it along to the next handler in the chain.
+This pattern helps decouple the sender of the request from its receivers, as the sender doesn’t know which handler will process the request.
+
+#### Real-World Example
+Imagine a customer support system with multiple levels of support:
+- Level 1: Handles basic inquiries.
+- Level 2: Handles more technical issues.
+- Level 3: Escalates to expert-level technicians.
+A customer’s query starts at Level 1, and if it cannot be resolved, it is passed to the next level. This is a real-world example of a chain of responsibility.
+
+#### Advantages
+- The sender doesn’t need to know which handler will process the request.
+- Easily add or modify handlers without changing client code.
+- Avoids hardcoding multiple if-else or switch-case statements for handling requests.
+- You can add new handlers or reorder the chain without affecting the existing ones.
+
+## Command
+Encapsulates a request (or action) as an object, allowing you to:
+- Parameterize methods with different requests.
+- Queue or log requests for later execution.
+- Support undo and redo operations.
+This pattern decouples the sender (who requests an action) from the receiver (who performs the action) by introducing a command object.
+
+#### Real-World Example
+Imagine you have a smart home system with different devices like lights, fans, and air conditioners. Using the Command Pattern, you can:
+- Turn devices On/Off
+- Schedule or queue commands.
+- Undo actions (e.g., turning a light back off).
+Instead of hardcoding requests for each device, you create commands that encapsulate these requests, making the system more flexible and extensible.
+
+#### Advantages
+- The invoker (e.g., remote) and receiver (e.g., light, fan) are decoupled by the command objects.
+- (Flexibility) You can add new commands without changing the existing code.
+- Commands can encapsulate logic for undo operations.
+- Commands can be stored and executed later, allowing delayed or batch processing.
+
 ### Observer
+Establishes a one-to-many dependency between objects. When one object (the Subject) changes its state, all dependent objects (the Observers) are notified and updated automatically. It’s like a subscription service: when something updates, all subscribers are informed.
+
+#### Real-World Example
+Imagine you subscribe to a YouTube channel. The channel (Subject) publishes a new video, and all the subscribers (Observers) are notified instantly. This decouples the channel from knowing how many subscribers exist or how they handle notifications.
+
+#### Advantages
+- The subject doesn’t need to know the details of its observers, ensuring loose coupling.
+- Observers are notified automatically whenever the subject changes its state.
+- (Scalability) You can easily add/remove observers without modifying the subject’s code.
+- (Reusability) Both subject and observers can be reused independently in different contexts.
+
+### State
+The State Pattern allows an object to change its behavior when its internal state changes. Instead of using lots of conditional statements (like if-else or switch), the pattern encapsulates state-specific behavior into separate classes and delegates behavior changes to these state classes.
+
+#### Real-World Example
+Consider a traffic light system. The light can be in one of three states: Red, Yellow, or Green. The behavior (e.g., stopping or allowing cars to move) changes based on the current state. Instead of managing the logic for all states in a single class, we can represent each state as a separate class and transition between them dynamically.
+
+#### Advantages
+- Removes complex if-else or switch statements by encapsulating state behavior in separate classes.
+- State-specific behavior is localized, making the code easier to manage and extend.
+- Allows objects to change behavior dynamically at runtime.
+- (Open/Close) You can add new states without modifying existing code.
+
+
+
+#### Real-World Example
+
+#### Advantages
+
+#### Real-World Example
+
+#### Advantages
+
+#### Real-World Example
+
+#### Advantages
+
+
 ### Strategy
