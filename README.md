@@ -47,6 +47,18 @@ Imagine building a custom pizza. Each pizza might have different crusts, sizes, 
 - Improves code readability and reusability.
 - Can create different representations of the same object (e.g., vegetarian pizza, meat lovers’ pizza).
 
+### Prototype
+The Prototype Pattern creates new objects by copying an existing object, known as the prototype, instead of creating objects from scratch. It is particularly useful when the object creation process is expensive or complex, and cloning provides a more efficient way to create new instances.
+
+#### Real-World Example
+Imagine you’re creating a document editing application. You have predefined templates for resumes, letters, and reports. Instead of building a new document from scratch each time, you can copy an existing template and make modifications as needed.
+Prototype pattern allows you to quickly create new documents by cloning predefined templates, saving time and effort
+
+#### Advantages
+- Cloning objects is often faster than creating new ones, especially for resource-heavy objects.
+- Eliminates the need for complex constructors when creating similar objects.
+- The cloned object can be modified without affecting the prototype.
+- You don’t need to create multiple subclasses for similar configurations; you can clone and modify prototypes instead.
 
 ## Structural Patterns
 Structural Design Patterns focus on how objects and classes are composed to form larger structures. They simplify relationships between objects, making them easier to manage and extend.
