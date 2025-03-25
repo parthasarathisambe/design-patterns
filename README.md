@@ -200,7 +200,7 @@ A customer’s query starts at Level 1, and if it cannot be resolved, it is pass
 - Avoids hardcoding multiple if-else or switch-case statements for handling requests.
 - You can add new handlers or reorder the chain without affecting the existing ones.
 
-## Command
+### Command
 Encapsulates a request (or action) as an object, allowing you to:
 - Parameterize methods with different requests.
 - Queue or log requests for later execution.
@@ -244,19 +244,95 @@ Consider a traffic light system. The light can be in one of three states: Red, Y
 - Allows objects to change behavior dynamically at runtime.
 - (Open/Close) You can add new states without modifying existing code.
 
-
-
-#### Real-World Example
-
-#### Advantages
-
-#### Real-World Example
-
-#### Advantages
+### Interpreter
+It is used to define the grammar of a language and provide an interpreter to evaluate and execute expressions in that language. It works well for scenarios where you have a set of rules or grammar and need a system to parse and process commands based on those rules.
+- Compilers: Parsing programming languages and executing code.
+- Expression Evaluators: Used in calculators or spreadsheets for evaluating formulas.
+- Configuration Parsers: Reading and interpreting configuration files or scripts.
 
 #### Real-World Example
+Math Expression Evaluator: Think of a calculator that evaluates mathematical expressions like "5 + 3 - 2." The grammar defines the syntax (addition, subtraction), and the interpreter evaluates the result step by step.
 
 #### Advantages
+- (Extensibility) New grammar rules can be added without modifying existing code.
+- Parsing and interpreting logic are separated, making the code cleaner.
+- (Readability) The structure of the code mirrors the grammar of the language, improving readability.
 
+### Iterator
+The Iterator Pattern provides a way to access elements of a collection sequentially, without having to understand how the collection is implemented. This pattern decouples the iteration logic from the collection itself, making it easier to work with different types of collections in a uniform way.
+
+#### Real-World Example
+Think of a playlist of songs in a music player. You need to traverse through the playlist to play songs one by one, rewind, or skip. The Iterator Pattern enables this functionality without exposing how the playlist is stored internally (e.g., in an array, list, or database).
+
+#### Advantages
+- You can traverse different types of collections in the same way.
+- (Encapsulation) Hides the internal details of the collection from the client.
+- Allows different types of traversal methods (e.g., forward, backward, or custom).
+- Removes the need to manually manage the traversal logic.
+
+### Mediator
+The Mediator Pattern introduces a mediator object to handle communication between a group of objects, so that objects don’t directly refer to each other. Instead, they interact with the mediator. This decouples objects and simplifies relationships, especially when there are many-to-many interactions.
+
+#### Real-World Example
+Imagine planes landing and taking off from an airport. Instead of communicating directly with each other to avoid collisions, planes communicate with the Air Traffic Control (ATC), which coordinates all their actions. The ATC acts as the mediator.
+
+#### Advantages
+- Objects no longer depend on each other directly, simplifying maintenance.
+- The mediator provides a single point of control for managing interactions.
+- (Modularity) Adding or removing colleagues becomes straightforward since they only interact with the mediator.
+- Minimizes many-to-many relationships, reducing the potential for errors.
+
+### Memento
+The Memento Pattern saves the internal state of an object without violating encapsulation, allowing you to restore it later. This is especially useful when:
+- You need to undo/redo operations.
+- You want to preserve an object’s history.
+
+#### Real-World Example
+Consider a text editor. As you type or delete, it saves snapshots of your text. If you make a mistake, you can undo to a previous state.
+
+#### Advantages
+- (Encapsulation) The state is saved and restored without exposing the object's internals.
+- Simplifies the implementation of undo/redo functionality.
+- (Reusability) Useful across different applications like text editors, games, or workflows.
 
 ### Strategy
+It allows you to define different algorithms or behaviors and choose one at runtime. It’s all about decoupling the logic (algorithm) from the object that uses it, making the code easier to extend and maintain.
+
+#### Real-World Example
+Imagine you’re implementing a payment system. Customers can choose to pay via Credit Card, PayPal, or UPI. Instead of hard coding all payment methods into a single class, you can define a strategy for each method and let customers pick the one they need dynamically.
+
+#### Advantages
+- You can easily switch algorithms or behaviors at runtime.
+- (Open/Close) New strategies can be added without modifying the existing code.
+- Separates the logic for different algorithms from the code that uses them.
+- (Extensibility) The system remains flexible and easy to maintain.
+
+### Template Method
+This Pattern defines the structure of an algorithm but lets subclasses override specific steps without changing the overall algorithm’s structure.
+It’s particularly useful when you want to enforce consistency across multiple subclasses but still need them to implement their own specific behaviors.
+
+#### Real-World Example
+Think about making a beverage (e.g., tea or coffee). The process (algorithm) typically involves:
+- Boiling water.
+- Brewing tea or coffee.
+- Pouring it into a cup.
+- Adding condiments (sugar, milk, etc.).
+The steps of boiling water, pouring into a cup, and adding condiments are common, but the brewing step (e.g., steeping tea leaves vs. brewing coffee) differs. The Template Method Pattern captures this idea.
+
+#### Advantages
+- (Reusability) Common steps are implemented in the abstract class, reducing duplication.
+- (Consistency) The overall structure of the algorithm is enforced, ensuring consistent behavior across all subclasses.
+- (Extensibility) New subclasses can be added without modifying the abstract class.
+- (Encapsulation) The template method encapsulates the algorithm, while subclasses focus only on specific steps.
+
+### Visitor
+The Visitor Pattern lets you define new operations on objects without changing the objects themselves. It does this by using a visitor object that encapsulates the operation, and each object in the structure "accepts" this visitor.
+It’s especially useful when working with a complex object structure (like a collection of different types of objects) where you need to perform operations that vary based on the object type.
+
+#### Real-World Example
+Imagine an online shopping cart. Different items (like electronics and books) may have different discount rules or tax calculations. Using the Visitor Pattern, you can implement these operations without modifying the classes of the items themselves.
+
+#### Advantages
+- (Single Responsibility) Separates the algorithm from the objects it operates on, making both easier to manage.
+- (Open/Close) You can add new operations (visitors) without modifying existing classes.
+- (Flexibility) The same objects can be used with different visitors to perform various operations.
